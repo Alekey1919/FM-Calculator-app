@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Calculator app</title>
+  </head>
+  <body>
+    <main>
+      <div class="calc">
+        <nav>
+          <h1>calc</h1>
+          <div class="theme">
+            <div class="theme-text">THEME</div>
+            <div class="theme-switch">
+              <div class="theme-switch-numbers">
+                <p id="switch-one">1</p>
+                <p id="switch-two">2</p>
+                <p id="switch-three">3</p>
+              </div>
+              <button></button>
+            </div>
+          </div>
+        </nav>
+        <div class="screen">
+          <div class="screen-small" data-previous-operand></div>
+          <div class="screen-big" data-current-operand></div>
+        </div>
+        <div class="calc-body">
+          <button class="calc-btn" data-number id="7">7</button>
+          <button class="calc-btn" data-number id="8">8</button>
+          <button class="calc-btn" data-number id="9">9</button>
+          <button class="calc-btn" data-delete id="del">DEL</button>
+          <button class="calc-btn" data-number id="4">4</button>
+          <button class="calc-btn" data-number id="5">5</button>
+          <button class="calc-btn" data-number id="6">6</button>
+          <button class="calc-btn" data-operation id="+">+</button>
+          <button class="calc-btn" data-number id="1">1</button>
+          <button class="calc-btn" data-number id="2">2</button>
+          <button class="calc-btn" data-number id="3">3</button>
+          <button class="calc-btn" data-operation id="-">-</button>
+          <button class="calc-btn" data-number id=".">.</button>
+          <button class="calc-btn" data-number id="0">0</button>
+          <button class="calc-btn" data-operation id="/">/</button>
+          <button class="calc-btn" data-operation id="x">x</button>
+          <button class="calc-btn" data-reset id="reset">RESET</button>
+          <button class="calc-btn" data-equals id="equal">=</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

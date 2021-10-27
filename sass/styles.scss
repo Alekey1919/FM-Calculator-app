@@ -1,0 +1,311 @@
+@import "config";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+  transition: background-color, 0.3s ease-in-out, color 0.1s;
+}
+
+// Theme 1
+
+main {
+  background-color: $oneBackground;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.second {
+    background-color: $twoBackground;
+  }
+
+  &.third {
+    background-color: $threeBackground;
+  }
+}
+
+.calc {
+  width: 500px;
+  height: 630px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 30px 0;
+  color: white;
+
+  main.second & {
+    color: $twoText;
+  }
+
+  main.third & {
+    color: $threeText;
+  }
+}
+
+.theme {
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+
+  &-text {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &-switch {
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-numbers {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: auto;
+
+      p {
+        cursor: pointer;
+
+        &:hover {
+          color: $oneBtnBorder;
+        }
+      }
+    }
+
+    button {
+      background: $oneKeypad;
+      border-radius: 15px;
+      height: 23px;
+      width: 100%;
+      border: none;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: $oneOrange;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        transition: left 0.3s ease-in-out;
+
+        main.second & {
+          left: 25px;
+        }
+
+        main.third & {
+          left: 50px;
+          background-color: $threeEqual;
+        }
+      }
+
+      main.second & {
+        background: $twoKeypad;
+      }
+
+      main.third & {
+        background: $threeKeypadScreen;
+      }
+    }
+  }
+}
+
+.screen {
+  width: 100%;
+  min-height: 100px;
+  background-color: $oneScreen;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 10px;
+  font-size: 2rem;
+  color: white;
+  flex-direction: column;
+  max-width: 100%;
+
+  /* Handle */
+  // &::-webkit-scrollbar-thumb {
+  //   background: #888;
+  // }
+
+  /* Handle on hover */
+  // &::-webkit-scrollbar-thumb:hover {
+  //   background: #555;
+  // }
+
+  &-small {
+    font-size: 1.3rem;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  &-big {
+    overflow: auto;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  &-small,
+  &-big {
+    &::-webkit-scrollbar {
+      width: 1px;
+      height: 1px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $oneBackground;
+    }
+  }
+
+  main.second & {
+    color: $twoText;
+    background-color: $twoScreen;
+  }
+
+  main.third & {
+    background-color: $threeKeypadScreen;
+    color: $threeText;
+  }
+}
+
+.calc-body {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  margin-top: 15px;
+  background-color: $oneKeypad;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  grid-gap: 20px;
+
+  main.second & {
+    background-color: $twoKeypad;
+  }
+
+  main.third & {
+    background-color: $threeKeypadScreen;
+  }
+}
+
+.calc-btn {
+  background-color: $oneBtn;
+  border: none;
+  border-radius: 5px 5px 10px 10px;
+  color: $oneKeypad;
+  font-size: 1.2rem;
+  border-bottom: 4px solid $oneBtnBorder;
+  transition: unset !important;
+
+  &:active {
+    background-color: $oneBtnBorder;
+  }
+
+  main.second & {
+    background-color: $twoBtn;
+    color: $twoText;
+    border-bottom: 4px solid $twoBtnBorder;
+
+    &:active {
+      background-color: $twoBtnBorder;
+    }
+  }
+
+  main.third & {
+    background-color: $threeBtn;
+    color: $threeText;
+    border-bottom: 4px solid $threeBtnBorder;
+
+    &:active {
+      background-color: $threeBtnBorder;
+    }
+  }
+}
+
+#del,
+#reset {
+  background-color: $oneBlueBtn;
+  color: white;
+  border-bottom: 4px solid $oneBlueBtnBorder;
+
+  &:active {
+    background-color: $oneBlueBtnBorder;
+  }
+
+  main.second & {
+    background-color: $twoBlueBtn;
+    border-bottom: 4px solid $twoDarkBlueBtn;
+
+    &:active {
+      background-color: $twoDarkBlueBtn;
+    }
+  }
+
+  main.third & {
+    background-color: $threeDelReset;
+    border-bottom: 4px solid $threeDelResetBorder;
+
+    &:active {
+      background-color: $threeDelResetBorder;
+    }
+  }
+}
+
+#reset,
+#equal {
+  grid-column: span 2;
+}
+
+#equal {
+  color: white;
+  background-color: $oneOrange;
+  border-bottom: 4px solid $oneDarkOrange;
+
+  &:active {
+    background-color: $oneDarkOrange;
+  }
+
+  main.second & {
+    background-color: $twoOrangeBtn;
+    border-bottom: 4px solid $twoDarkOrangeBtn;
+
+    &:active {
+      background-color: $twoDarkOrangeBtn;
+    }
+  }
+
+  main.third & {
+    background-color: $threeEqual;
+    border-bottom: 4px solid $threeEqualBorder;
+    color: $threeEqualText;
+
+    &:active {
+      background-color: $threeEqualBorder;
+    }
+  }
+}
+
+// Responsive
+
+@media (max-width: 500px) {
+  .calc {
+    width: 100vw;
+  }
+}
